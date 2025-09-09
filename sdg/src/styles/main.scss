@@ -1,0 +1,6 @@
+@use './basic/reset' as *;
+@use './basic/variables' as *;
+
+h1{
+    font-family: $extraBold;
+}

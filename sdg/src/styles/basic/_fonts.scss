@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'os-extra-bold';
+    src: url('/fonts/OpenSans-ExtraBold.woff2') format('woff2'),
+        url('/fonts/OpenSans-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'os-regular';
+    src: url('/fonts/OpenSans-Regular.woff2') format('woff2'),
+        url('/fonts/OpenSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'os-bold';
+    src: url('/fonts/OpenSans-Bold.woff2') format('woff2'),
+        url('/fonts/OpenSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'os-semi-bold';
+    src: url('/fonts/OpenSans-SemiBold.woff2') format('woff2'),
+        url('/fonts/OpenSans-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+$regular: 'os-regular' , sans-serif !default;
+$bold: 'os-bold' , sans-serif !default;
+$semiBold: 'os-semi-bold' , sans-serif !default;
+$extraBold: 'os-extra-bold' , sans-serif !default;
