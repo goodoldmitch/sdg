@@ -2,9 +2,10 @@
 
 ### Steps to launch the project:
 - clone the project
-- enter the "cdg" folder using "cd sdg"
-- run "npm install"
-- use "npm run preview" to run production version or use "npm run dev" to launch development mode
+- enter the "**cdg" folder using "cd sdg/sdg**"
+- run "**npm install**"
+- run "**npm run build**" to build production version
+- use "**npm run preview**" to run production version or use "**npm run dev**" to launch development mode
 
 ### Comments
 
