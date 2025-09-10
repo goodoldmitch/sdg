@@ -86,7 +86,6 @@
             list-style: none;
             counter-reset: my-counter;
           
-          
            li {
             display: flex;
             align-items: center;
@@ -115,6 +114,228 @@
 
                 .btn{
                     max-width: 100%;
+                }
+            }
+        }
+    }
+
+}
+
+@include smallHeight{
+    .hero{
+        padding: 70px 90px ;    
+    }
+}
+
+@include desktop{
+    .hero{
+        gap: unset;
+        justify-content: space-between;
+        &-graphic{
+            margin-left: 20px;
+
+            .logo{
+                max-width: 300px;
+            }
+    
+            picture{
+                
+                &:nth-of-type(1){
+                    width: 229px;
+                    --float-translate-x: -27%;
+                    --float-translate-y: -134%;
+                    @include float-animation(8s, 15px);
+                }
+                &:nth-of-type(2){
+                    width: 136px;
+                    --float-translate-x: 85%;
+                    --float-translate-y: -66%;
+                    @include float-animation(5s, 12px);
+                }
+                &:nth-of-type(3){
+                    width: 131px;
+                    --float-translate-x: 48%;
+                    --float-translate-y: 50%;
+                    @include float-animation(7s, 15px);
+                }
+                &:nth-of-type(4){
+                    width: 177px;
+                    z-index: 3;
+                    --float-translate-x: -85%;
+                    --float-translate-y: 63%;
+                    @include float-animation(10s, 14px);
+                }
+                &:nth-of-type(5){
+                    width: 201px;
+                    --float-translate-x: -162%;
+                    --float-translate-y: -22%;
+                    @include float-animation(6s, 13px);
+                }
+                &:nth-of-type(6){
+                    width: 133px;
+                    --float-translate-x: -154%;
+                    --float-translate-y: -148%;
+                    @include float-animation(7s, 12px);
+                }
+            }
+    
+            
+        }
+    }
+}
+
+@include laptop{
+    .hero{
+        padding: 100px 16px;
+
+        &-graphic{
+            width: 60%;
+        }
+        &-rules{
+            max-width: 40%;
+         
+            h1{
+                font-size: 50px;
+                margin-bottom: 25px;
+            }
+
+            ol li{
+                font-size: 30px;
+                line-height: 1.1;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+@include bigTablet{
+    .hero{
+        
+        &-graphic{
+            
+            .logo{
+                max-width: 200px;
+            }
+    
+            picture{
+                
+                &:nth-of-type(1){
+                    width: 180px;
+                    --float-translate-x: -27%;
+                    --float-translate-y: -134%;
+                    @include float-animation(8s, 15px);
+                }
+                &:nth-of-type(2){
+                    width: 100px;
+                    --float-translate-x: 85%;
+                    --float-translate-y: -66%;
+                    @include float-animation(5s, 12px);
+                }
+                &:nth-of-type(3){
+                    width: 111px;
+                    --float-translate-x: 48%;
+                    --float-translate-y: 50%;
+                    @include float-animation(7s, 15px);
+                }
+                &:nth-of-type(4){
+                    width: 137px;
+                    z-index: 3;
+                    --float-translate-x: -85%;
+                    --float-translate-y: 63%;
+                    @include float-animation(10s, 14px);
+                }
+                &:nth-of-type(5){
+                    width: 151px;
+                    --float-translate-x: -162%;
+                    --float-translate-y: -22%;
+                    @include float-animation(6s, 13px);
+                }
+                &:nth-of-type(6){
+                    width: 103px;
+                    --float-translate-x: -154%;
+                    --float-translate-y: -148%;
+                    @include float-animation(7s, 12px);
+                }
+            }
+    
+            
+        }
+    }
+}
+
+@include tablet{
+    .hero{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 25px 16px;
+
+        &-graphic{
+            width: 100%;
+            min-height: 300px;
+            margin-bottom: 20px;
+
+            .logo{
+                max-width: 140px;
+            }
+    
+            picture{
+                
+                &:nth-of-type(1){
+                    width: 111px;
+                    --float-translate-x: -27%;
+                    --float-translate-y: -134%;
+                    @include float-animation(8s, 15px);
+                }
+                &:nth-of-type(2){
+                    width: 74px;
+                    --float-translate-x: 85%;
+                    --float-translate-y: -66%;
+                    @include float-animation(5s, 12px);
+                }
+                &:nth-of-type(3){
+                    width: 72px;
+                    --float-translate-x: 48%;
+                    --float-translate-y: 50%;
+                    @include float-animation(7s, 15px);
+                }
+                &:nth-of-type(4){
+                    width: 82px;
+                    z-index: 3;
+                    --float-translate-x: -85%;
+                    --float-translate-y: 63%;
+                    @include float-animation(10s, 14px);
+                }
+                &:nth-of-type(5){
+                    width: 91px;
+                    --float-translate-x: -162%;
+                    --float-translate-y: -22%;
+                    @include float-animation(6s, 13px);
+                }
+                &:nth-of-type(6){
+                    width: 65px;
+                    --float-translate-x: -154%;
+                    --float-translate-y: -148%;
+                    @include float-animation(7s, 12px);
+                }
+            }
+        }
+
+        &-rules{
+            max-width: 100%;
+
+            h1{
+                font-size: 35px;
+                letter-spacing: -1.75px;
+            }
+
+            ol li{
+                gap: 10px;
+                font-size: 19px;
+                letter-spacing: -0.9px;
+
+                &::before{
+                    font-size: 33px;
                 }
             }
         }

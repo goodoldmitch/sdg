@@ -22,7 +22,6 @@ export function initForm() {
 
   if (!emailInput || !passwordInput) return;
 
-  // Универсальная функция валидации одного поля
   function validateField(
     input: HTMLInputElement,
     validator: (val: string) => boolean,
@@ -35,13 +34,12 @@ export function initForm() {
       input.classList.add("input-error");
       return false;
     }
-    // очищаем ошибку при валидном вводе
+  
     if (errorBox) errorBox.textContent = "";
     input.classList.remove("input-error");
     return true;
   }
 
-  // Вешаем валидацию на blur
   emailInput.addEventListener("blur", () =>
     validateField(emailInput, validateEmail, errorBoxEmail, "Please enter a valid e-mail")
   );
@@ -50,7 +48,6 @@ export function initForm() {
     validateField(passwordInput, validatePassword, errorBoxPassword, "Password must be at least 8 characters")
   );
 
-  // Сабмит формы
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -60,7 +57,6 @@ export function initForm() {
     if (!isEmailValid || !isPasswordValid) return;
 
     try {
-      // Попытка авторизации
       const loginResp = await login(emailInput.value.trim(), passwordInput.value.trim());
       if (loginResp.ok) {
         const token = loginResp.headers.get("X-Token");
@@ -71,20 +67,18 @@ export function initForm() {
         }
       }
 
-      // Регистрация
       const regResp = await register(emailInput.value.trim(), passwordInput.value.trim());
       if (regResp.ok) {
         const token = regResp.headers.get("X-Token");
         if (token) saveToken(token);
 
         if (successBox) {
-        //   successBox.textContent = "Thank You...";
 
           parentWrapper?.classList.add('show-success');
           
-        //   setTimeout(() => {
-        //     redirectIfAuthorized();
-        //   }, 5000);
+          setTimeout(() => {
+            redirectIfAuthorized();
+          }, 5000);
         }
       } else {
         if (errorBox) errorBox.textContent = "Registration failed. Try again.";

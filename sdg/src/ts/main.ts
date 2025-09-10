@@ -4,10 +4,8 @@ import { redirectIfAuthorized } from './components/api';
 import { initForm } from './components/form';
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Автологин при наличии токена
-    // redirectIfAuthorized();
+    redirectIfAuthorized();
   
-    // Инициализация UI
     initPopup();
     initForm();
   });

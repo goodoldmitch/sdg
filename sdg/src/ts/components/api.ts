@@ -1,6 +1,5 @@
 const API_URL = "https://api.dating.com/identity";
 
-// Регистрация
 export async function register(email: string, password: string): Promise<Response> {
   return fetch(API_URL, {
     method: "PUT",
@@ -11,7 +10,6 @@ export async function register(email: string, password: string): Promise<Respons
   });
 }
 
-// Авторизация (Basic)
 export async function login(email: string, password: string): Promise<Response> {
   const credentials = btoa(`${email}:${password}`);
   return fetch(API_URL, {
@@ -22,17 +20,14 @@ export async function login(email: string, password: string): Promise<Response> 
   });
 }
 
-// Сохранение токена
 export function saveToken(token: string) {
   localStorage.setItem("token", token);
 }
 
-// Получение токена
 export function getToken(): string | null {
   return localStorage.getItem("token");
 }
 
-// Проверка и редирект
 export function redirectIfAuthorized() {
   const token = getToken();
   if (token) {

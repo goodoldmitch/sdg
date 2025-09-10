@@ -56,3 +56,54 @@
       }
     }
   }
+
+// Media 
+$mobile: 480px;
+$tablet: 768px;
+$bigTablet: 991px;
+$laptop: 1100px;
+$desktop: 1280px;
+$smallHeight: 900px;
+
+@mixin smallHeight {
+  @media (max-height: #{$smallHeight}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin bigTablet {
+  @media (max-width: #{$bigTablet}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: #{$laptop}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin largeDesktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
