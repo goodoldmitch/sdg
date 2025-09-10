@@ -1,0 +1,122 @@
+@use '../basic/mixins' as *;
+@use '../basic/variables' as *;
+
+.hero{
+    display: flex;
+    align-items: stretch;
+    gap: 14%;
+    padding: 150px 0 0 90px;
+
+    &-graphic{
+        position: relative;
+        width: 38%;
+
+        .logo{
+            position: absolute;
+            max-width: 380px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            --original-transform: translate(-50%, -50%);
+            @include subtle-heartbeat(2s, 1.03); 
+        }
+
+        picture{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            &:nth-of-type(1){
+                width: 279px;
+                --float-translate-x: -27%;
+                --float-translate-y: -134%;
+                @include float-animation(8s, 15px);
+            }
+            &:nth-of-type(2){
+                width: 186px;
+                --float-translate-x: 85%;
+                --float-translate-y: -66%;
+                @include float-animation(5s, 12px);
+            }
+            &:nth-of-type(3){
+                width: 181px;
+                --float-translate-x: 48%;
+                --float-translate-y: 50%;
+                @include float-animation(7s, 15px);
+            }
+            &:nth-of-type(4){
+                width: 207px;
+                z-index: 3;
+                --float-translate-x: -85%;
+                --float-translate-y: 63%;
+                @include float-animation(10s, 14px);
+            }
+            &:nth-of-type(5){
+                width: 231px;
+                --float-translate-x: -162%;
+                --float-translate-y: -22%;
+                @include float-animation(6s, 13px);
+            }
+            &:nth-of-type(6){
+                width: 163px;
+                --float-translate-x: -154%;
+                --float-translate-y: -148%;
+                @include float-animation(7s, 12px);
+            }
+        }
+
+        
+    }
+
+    &-rules{
+        max-width: 476px;
+
+        h1{
+            font-family: $extraBold;
+            font-size: 77px;
+            font-style: normal;
+            line-height: 1.1;
+            letter-spacing: -3.85px;
+            @include gradient-text(145deg, $gradienStart 12.35%, $gradienEnd 83.63%);
+            margin-bottom: 70px;
+        }
+
+        ol {
+            list-style: none;
+            counter-reset: my-counter;
+          
+          
+           li {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            counter-increment: my-counter;
+            color: $textColor;
+            font-family: $semiBold;
+            font-size: 38px;
+            line-height: 1.9;
+            letter-spacing: -1.9px;
+            margin-bottom: 40px;
+
+                &:last-child{
+                    margin-bottom: 0;
+                }
+          
+                &:before {
+                    content: counter(my-counter) ".";
+                    font-family: $extraBold;
+                    font-size: 55px;
+                    line-height: normal;
+                    letter-spacing: -2.75px;
+                
+                    @include gradient-text(145deg, $gradienStart 12.35%, $gradienEnd 83.63%);
+                }
+
+                .btn{
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}

@@ -1,12 +1,85 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SDG test</title>
-  </head>
-  <body>
-    <h1>Hi</h1>
-    <script type="module" src="/src/ts/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SDG test</title>
+</head>
+
+<body>
+  <main>
+    <section class="hero">
+      <div class="hero-graphic">
+        <img src="/img/logo.svg" alt="" class="logo">
+        <picture>
+          <source srcset="/img/person-1.webp" type="image/webp">
+          <img src="/img/person-1.png" alt="Person 1">
+        </picture>
+        <picture>
+          <source srcset="/img/person-2.webp" type="image/webp">
+          <img src="/img/person-2.png" alt="Person 2">
+        </picture>
+        <picture>
+          <source srcset="/img/person-3.webp" type="image/webp">
+          <img src="/img/person-3.png" alt="Person 3">
+        </picture>
+        <picture>
+          <source srcset="/img/person-4.webp" type="image/webp">
+          <img src="/img/person-4.png" alt="Person 4">
+        </picture>
+        <picture>
+          <source srcset="/img/person-5.webp" type="image/webp">
+          <img src="/img/person-5.png" alt="Person 5">
+        </picture>
+        <picture>
+          <source srcset="/img/person-6.webp" type="image/webp">
+          <img src="/img/person-6.png" alt="Person 6">
+        </picture>
+        
+      </div>
+      <div class="hero-rules">
+        <h1>How to Participate</h1>
+        <ol>
+          <li>Subscribe to our News</li>
+          <li>
+            <button id="signup-btn" class="btn">Sign Up</button>
+          </li>
+          <li>Check your email inbox </li>
+          <li>Wait till September 22</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <button id="popup-close" class="popup-content-close">
+        <img src="/img/closing-cross.svg" alt="">
+      </button>
+      <div class="popup-content-form">
+        <p>To register, enter the mail to which our news is sent and set your password</p>
+        <form id="signup-form" novalidate>
+          <div class="form-group">
+            <!-- <label for="email">Email</label> -->
+            <input type="email" id="email" name="email" placeholder="Example@email.com" required>
+            <div class="form-error" id="email-error"></div>
+          </div>
+          <div class="form-group">
+            <!-- <label for="password">Password</label> -->
+            <input type="password" id="password" name="password" placeholder="Password" required minlength="8">
+            <div class="form-error" id="password-error"></div>
+          </div>
+          <button class="btn" type="submit">Register</button>
+        </form>
+      </div>
+      <div class="popup-content-error" id="form-errors"></div>
+      <div class="popup-content-success" id="form-success">
+        <h2>Thank You</h2>
+        <p>To complete registration, please check your e-mail</p>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/ts/main.ts"></script>
+</body>
+
 </html>

@@ -1,6 +1,58 @@
+@use 'sass:math';
+
+@mixin gradient-block($angle: 90deg, $colors...){
+    background: linear-gradient($angle, $colors...);
+}
+
 @mixin gradient-text($angle: 90deg, $colors...) {
     background: linear-gradient($angle, $colors...);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+@mixin float-animation($duration: 6s, $distance: 10px) {
+  display: inline-block;
+
+  animation: float-move $duration ease-in-out infinite alternate;
+
+  @keyframes float-move {
+    0% {
+      transform: translateX(var(--float-translate-x)) translateY(var(--float-translate-y)) translateZ(0);
+    }
+    25% {
+      transform: translateX(calc(var(--float-translate-x) + #{math.div($distance, 4)})) 
+                 translateY(calc(var(--float-translate-y) - #{math.div($distance, 2)})) translateZ(0);
+    }
+    50% {
+      transform: translateX(var(--float-translate-x)) translateY(calc(var(--float-translate-y) - #{$distance})) translateZ(0);
+    }
+    75% {
+      transform: translateX(calc(var(--float-translate-x) - #{math.div($distance, 4)})) 
+                 translateY(calc(var(--float-translate-y) - #{math.div($distance, 2)})) translateZ(0);
+    }
+    100% {
+      transform: translateX(var(--float-translate-x)) translateY(var(--float-translate-y)) translateZ(0);
+    }
+  }
+}
+
+@mixin subtle-heartbeat($duration: 2s, $scale: 1.05) {
+    display: inline-block;
+    
+    --original-transform: translate(-50%, -50%);
+  
+    animation: subtle-heartbeat-animation $duration ease-in-out infinite alternate;
+  
+    @keyframes subtle-heartbeat-animation {
+      0% {
+        transform: var(--original-transform) scale(1);
+      }
+      50% {
+        transform: var(--original-transform) scale($scale);
+      }
+      100% {
+        transform: var(--original-transform) scale(1);
+      }
+    }
+  }

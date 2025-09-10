@@ -1,0 +1,141 @@
+@use '../basic/variables' as *;
+@use '../basic/mixins' as *;
+
+.popup{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba($white, 0.80);
+    backdrop-filter: blur(7.5px);
+
+    &.is-open{
+        display: flex;
+    }
+
+    &-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 1270px;
+        position: relative;
+        border-radius: 50px;
+        background: $white;
+        box-shadow: 0 0 10px 0 rgba($black, 0.10);
+        padding: 150px 0;
+
+        &-close{
+            position: absolute;
+            top: 45px;
+            right: 45px;
+            transition: $transition;
+
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+
+        &-form{
+            max-width: 620px;
+
+            p{
+                color: $textColor;
+                text-align: center;
+                font-family: $bold;
+                font-size: 24px;
+                line-height: 1.16;
+                letter-spacing: -0.96px;
+                margin-bottom: 45px;
+            }
+
+            .form-group{
+                position: relative;
+
+                input[type="email"], input[type="password"]{
+                    border-bottom: 1px solid rgba($textColor, 0.5);
+                    width: 100%;
+                    height: 30px;
+                    font-size: 18px;
+                    text-align: center;
+                    margin-bottom: 47px;
+                    padding-bottom: 5px;
+
+                    &.input-error{
+                        border-color: $errorColor;
+
+                        & + .form-error{
+                            width: 100%;
+                            position: absolute;
+                            bottom: 24px;
+                            color: $errorTextColor;
+                            text-align: center;
+                            font-family: $regular;
+                            font-size: 12px;
+                            line-height: 1.5;
+
+                            &::after{
+                                display: block;
+                                content:'';
+                                width: 24px;
+                                height: 24px;
+                                background: url('/img/error.svg') center / 100% no-repeat;
+                                position: absolute;
+                                top: -20px;
+                                right: 0;
+                                transform: translateY(-50%);
+                            }
+                        }
+
+                        
+                    }
+                }
+                
+            }
+
+            button[type="submit"]{
+                margin: 0 auto;
+            }
+        }
+
+        &-success{
+            display: none;
+        }
+    }
+
+    &-content.show-success{
+        .popup-content-form{
+            display: none;
+        }
+
+        .popup-content-success{
+            display: block;
+            text-align: center;
+
+            h2{
+                font-family: $extraBold;
+                font-size: 77px;
+                line-height: 1.1;
+                letter-spacing: -3.85px;
+                @include gradient-text(145deg, $gradienStart 12.35%, $gradienEnd 83.63%);
+                margin-bottom: 30px;
+            }
+
+            p{
+                color: $textColor;
+                font-family: $bold;
+                font-size: 28px;
+                line-height: normal;
+                letter-spacing: -1.4px;
+            }
+        }
+    }
+
+
+}

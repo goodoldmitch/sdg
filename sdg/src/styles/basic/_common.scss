@@ -1,0 +1,66 @@
+@use './mixins' as *;
+@use './variables' as *;
+
+body{
+    font-family: $regular;
+    font-size: 23px;
+    color: $textColor;
+
+    &.no-scroll{
+        overflow: hidden;
+    }
+}
+main{
+    max-width: 1920px;
+    margin: 0 auto;
+}
+.btn{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 285px;
+    color: $white;
+    font-family: $extraBold;
+    font-size: 23px;
+    line-height: normal;
+    letter-spacing: 0.69px;
+    text-transform: uppercase;
+    padding: 25px 51px;
+    border-radius: 10px;
+    @include gradient-block(238deg, #D4208C 0.42%, #E51726 82.5%);
+    transition: $transition;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;                /* начинаем слева */
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);   /* наклон для красивого блика */
+  }
+  
+  .btn:hover {
+    box-shadow: 0 0 10px rgba($textColor, 0.5);
+    transform: scale(1.01);
+  }
+  .btn:hover::before {
+    animation: shine 0.9s forwards;
+  }
+  
+  @keyframes shine {
+    0% {
+      left: -75%;
+    }
+    100% {
+      left: 125%;
+    }
+  }
